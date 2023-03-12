@@ -14,7 +14,9 @@ import lombok.Getter;
 @Getter
 public enum ResponseCode
 {
-    SUCCESS(200,"方法调用成功");
+    SUCCESS(200,"方法调用成功"),
+    METHOD_NOT_FOUND(500, "未找到指定方法"),
+    CLASS_NOT_FOUND(500, "未找到指定类");
 
     /**
      * 响应状态码
