@@ -1,10 +1,10 @@
 package aiolia.test;
 
 import aiolia.rpc.api.HelloService;
-import aiolia.rpc.api.HelloServiceImpl;
-import aiolia.rpc.transport.DefaultServiceRegistry;
-import aiolia.rpc.transport.RpcServer;
-import aiolia.rpc.transport.ServiceRegistry;
+import aiolia.rpc.transport.provider.ServiceProvider;
+import aiolia.rpc.transport.provider.ServiceProviderImpl;
+import aiolia.rpc.transport.serializer.CommonSerializer;
+import aiolia.rpc.transport.transport.socket.server.SocketServer;
 
 /**
  * @author aiolia
@@ -15,10 +15,7 @@ public class TestServer
 {
     public static void main(String[] args)
     {
-        HelloService helloService = new HelloServiceImpl();
-        ServiceRegistry serviceRegistry = new DefaultServiceRegistry();
-        serviceRegistry.register(helloService);
-        RpcServer rpcServer = new RpcServer(serviceRegistry);
-        rpcServer.start(9000);
+        SocketServer rpcServer = new SocketServer("127.0.0.1", 9999, CommonSerializer.KRYO_SERIALIZER);
+        rpcServer.start();
     }
 }

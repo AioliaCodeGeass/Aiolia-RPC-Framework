@@ -9,12 +9,12 @@ import java.io.Serializable;
 /**
  * @author aiolia
  * @version 1.0
- * @create 2023/3/11
+ * @create 2023/3/15
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HelloObject implements Serializable
+public class ByeObject implements Serializable
 {
     private Integer id;
     private String message;
